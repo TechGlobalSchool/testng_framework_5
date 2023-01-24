@@ -37,6 +37,8 @@
                     <include name="validateRedBox"/>
                 </methods>
             </class>
+            <class name="scripts.TechGlobalDropdownsTest"/>
+            <class name="scripts.TechGlobalMultipleWindowsTest"/>
         </classes>
     </test>
 </suite>
