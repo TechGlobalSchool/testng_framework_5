@@ -104,7 +104,7 @@ public class TechGlobalAlertsTest extends TechGlobalBase {
      */
 
     @Test(priority = 3, description = "Prompt alert")
-    public void promptAlert() {
+    public void promptAlert1() {
 
         techGlobalAlertsPage.clickOnAlert("Prompt alert");
         Assert.assertEquals(AlertHandler.getAlertText(),"What would you like to say to TechGlobal?");
