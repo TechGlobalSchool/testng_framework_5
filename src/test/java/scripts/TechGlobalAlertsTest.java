@@ -10,6 +10,7 @@ import utilities.AlertHandler;
 import utilities.Driver;
 import utilities.Waiter;
 
+
 public class TechGlobalAlertsTest extends TechGlobalBase {
 
     @BeforeMethod
