@@ -27,7 +27,6 @@ public class TechGlobalDynamicTablesTest extends TechGlobalBase{
      * Click on the "ADD PRODUCT" button
      * Validate the modal title equals "Add New Product"
      */
-
     @Test(priority = 1, description = "pop up validation")
     public void popupValidation(){
         techGlobalDynamicTablesPage.addProductButton.click();

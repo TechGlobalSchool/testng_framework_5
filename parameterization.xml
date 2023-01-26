@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Login">
+    <test name="Login">
+        <parameter name="username" value="test_account1"/>
+        <parameter name="password" value="SuperSecretPassword!"/>
+        <parameter name="email" value="johndoe@gmail.com"/>
+        <parameter name="browser" value="chrome"/>
+
+
+        <classes>
+            <class name="testng_knowledge._10_Parameterization"/>
+        </classes>
+    </test>
+</suite>
