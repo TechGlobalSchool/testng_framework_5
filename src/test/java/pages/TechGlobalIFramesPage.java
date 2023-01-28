@@ -3,9 +3,11 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class TechGlobalIFramesPage extends TechGlobalBasePage {
 
-    public TechGlobalIFramesPage(){
+    public TechGlobalIFramesPage() {
         super();
     }
 
@@ -14,4 +16,16 @@ public class TechGlobalIFramesPage extends TechGlobalBasePage {
 
     @FindBy(css = "#form_frame")
     public WebElement iFrameId;
+
+    @FindBy(css = ".input")
+    public List<WebElement> inputFields;
+
+    @FindBy(id = "submit")
+    public WebElement submitButton;
+
+    @FindBy(id = "result")
+    public WebElement resultText;
+
+
+
 }
