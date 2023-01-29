@@ -77,4 +77,16 @@ public class TechGlobalStaticTablesTest extends TechGlobalBase{
         });
     }
 
+    @Test(priority = 4, description = "Validate all cells")
+    public void validateAllCells(){
+
+        List<List<WebElement>> tableData = techGlobalStaticTablesPage.getTableData();
+
+        for (int i = 0; i < tableData.size(); i++) {
+            for (int j = 0; j < tableData.get(i).size(); j++) {
+                System.out.println(tableData.get(i).get(j).getText());
+            }
+        }
+    }
+
 }
