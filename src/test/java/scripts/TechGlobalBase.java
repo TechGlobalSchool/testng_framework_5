@@ -26,6 +26,7 @@ public class TechGlobalBase {
     TechGlobalFileDownloadPage techGlobalFileDownloadPage;
     TechGlobalStaticTablesPage techGlobalStaticTablesPage;
     TechGlobalCalendarPage techGlobalCalendarPage;
+    TechGlobalSortableTablesPage techGlobalSortableTablesPage;
 
     @BeforeMethod
     public void setup() {
