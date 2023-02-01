@@ -46,6 +46,14 @@
             <artifactId>webdrivermanager</artifactId>
             <version>5.3.2</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/co.boorse/selenium-table -->
+        <dependency>
+            <groupId>co.boorse</groupId>
+            <artifactId>selenium-table</artifactId>
+            <version>1.1</version>
+        </dependency>
+
     </dependencies>
 
 

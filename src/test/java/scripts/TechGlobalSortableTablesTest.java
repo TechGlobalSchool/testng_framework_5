@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.TechGlobalFrontendTestingHomePage;
 import pages.TechGlobalSortableTablesPage;
-import utilities.TableData;
+import utilities.TableHandler;
 import utilities.Waiter;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class TechGlobalSortableTablesTest extends TechGlobalBase{
     public void validateSortAscByQuantity(){
         techGlobalSortableTablesPage.ascByQuantity.click();
 
-        List<WebElement> quantityColumnElements = TableData.getTableColumn(driver, 1);
+        List<WebElement> quantityColumnElements = TableHandler.getTableColumn(driver, 1);
         List<Integer> quantityColumn = new ArrayList<>();
 
         for (WebElement element : quantityColumnElements) {

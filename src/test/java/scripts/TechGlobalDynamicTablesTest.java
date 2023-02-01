@@ -4,10 +4,9 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.TechGlobalAlertsPage;
 import pages.TechGlobalDynamicTablesPage;
 import pages.TechGlobalFrontendTestingHomePage;
-import utilities.TableData;
+import utilities.TableHandler;
 import utilities.TextHandler;
 import utilities.Waiter;
 
@@ -85,10 +84,10 @@ public class TechGlobalDynamicTablesTest extends TechGlobalBase{
         Assert.assertEquals(techGlobalDynamicTablesPage.tableRow.size(), tableRowSize + 1);
 
         // get the total amount of the newly added product from the table
-        int productTotalAmount = TextHandler.getInt(TableData.getTableRow(driver, 4).get(3).getText());
+        int productTotalAmount = TextHandler.getInt(TableHandler.getTableRow(driver, 4).get(3).getText());
 
         // get the row of the table that we need to check
-        List<WebElement> tableRow = TableData.getTableRow(driver, 4);
+        List<WebElement> tableRow = TableHandler.getTableRow(driver, 4);
 
         // validate that the values in the table match the values from product array
         IntStream.range(0, tableRow.size()-1).forEach(i -> Assert.assertEquals(tableRow.get(i).getText(), products[i]));
