@@ -57,8 +57,9 @@ public class TechGlobalDynamicTablesTest extends TechGlobalBase{
     public void validateDynamicTable(){
 
         // storing initial table row size and validate it is 3
-        int tableRowSize = techGlobalDynamicTablesPage.tableRow.size();
-        Assert.assertEquals(techGlobalDynamicTablesPage.tableRow.size(), 3);
+        int tableRowSize = TableHandler.getRowCount(techGlobalDynamicTablesPage.table);
+        System.out.println(tableRowSize);
+        Assert.assertEquals(tableRowSize, 3);
 
         // store the current total amount before adding a new product and parse it to an int
         int initialTotal = TextHandler.getInt(techGlobalDynamicTablesPage.totalAmount.getText());
@@ -81,16 +82,17 @@ public class TechGlobalDynamicTablesTest extends TechGlobalBase{
         techGlobalDynamicTablesPage.submitButton.click();
 
         // then validate that there are now 4 rows in the table.
-        Assert.assertEquals(techGlobalDynamicTablesPage.tableRow.size(), tableRowSize + 1);
+        Assert.assertEquals(TableHandler.getRowCount(techGlobalDynamicTablesPage.table), tableRowSize + 1);
 
         // get the total amount of the newly added product from the table
         int productTotalAmount = TextHandler.getInt(TableHandler.getTableRow(driver, 4).get(3).getText());
 
         // get the row of the table that we need to check
-        List<WebElement> tableRow = TableHandler.getTableRow(driver, 4);
+
+
 
         // validate that the values in the table match the values from product array
-        IntStream.range(0, tableRow.size()-1).forEach(i -> Assert.assertEquals(tableRow.get(i).getText(), products[i]));
+        IntStream.range(0, products.length).forEach(i -> Assert.assertEquals(TableHandler.getRowCell(techGlobalDynamicTablesPage.table, 3, i).getText(), products[i]));
 
         // Also, validate that the total amount of the newly added product matches the calculated value
         Assert.assertEquals(productTotalAmount, myProductTotal);
