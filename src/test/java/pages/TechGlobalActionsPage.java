@@ -36,7 +36,7 @@ public class TechGlobalActionsPage extends TechGlobalBasePage {
     public WebElement dragAndDropResult;
 
 
-    @FindBy(id = "")
+    @FindBy(id = "input_box")
     public WebElement inputBox;
 
 

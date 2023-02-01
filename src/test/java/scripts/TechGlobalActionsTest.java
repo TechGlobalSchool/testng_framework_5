@@ -1,5 +1,6 @@
 package scripts;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -7,6 +8,8 @@ import org.testng.annotations.Test;
 import pages.TechGlobalActionsPage;
 import pages.TechGlobalFrontendTestingHomePage;
 import utilities.Waiter;
+
+import java.time.Duration;
 
 public class TechGlobalActionsTest extends TechGlobalBase{
 
@@ -68,10 +71,55 @@ public class TechGlobalActionsTest extends TechGlobalBase{
 
     @Test(priority = 2, description = "Drag and Drop action")
     public void dragAndDropAction(){
-        actions.moveToElement(techGlobalActionsPage.dragMeBox).clickAndHold()
-                .moveToElement(techGlobalActionsPage.dropHereBox).release().perform();
+//        actions.moveToElement(techGlobalActionsPage.dragMeBox).clickAndHold()
+//                .moveToElement(techGlobalActionsPage.dropHereBox).release().perform();
+//
+        actions.dragAndDrop(techGlobalActionsPage.dragMeBox, techGlobalActionsPage.dropHereBox).perform();
 
         Waiter.waitForVisibilityOfElement(techGlobalActionsPage.dragAndDropResult, 10);
         Assert.assertEquals(techGlobalActionsPage.dragAndDropResult.getText(), "An element dropped here!");
+    }
+
+    /**
+     * Go to https://techglobal-training.netlify.app/
+     * Click on the "Practices" dropdown in the header
+     * Select the "Frontend Testing" option from the dropdown menu
+     * Click on the "Actions" card
+     * Go to input box, and remove existing text inside
+     * Enter “Hello” to search input box
+     * Validate value attribute is “Hello”
+     */
+
+    @Test(priority = 3, description = "Keyboard actions")
+    public void keyboardActions(){
+
+        actions.keyDown(Keys.SHIFT)
+                .sendKeys(techGlobalActionsPage.inputBox, "h")
+                .keyUp(Keys.SHIFT)
+                .pause(Duration.ofSeconds(2))
+                .sendKeys("ello")
+                .pause(Duration.ofSeconds(2))
+                .perform();
+
+        Assert.assertEquals(techGlobalActionsPage.inputBox.getAttribute("value"), "Hello");
+
+    }
+
+    /**
+     * TEST4
+     * Go to https://techglobal-training.netlify.app/
+     * Click on the "Practices" dropdown in the header
+     * Select the "Frontend Testing" option from the dropdown menu
+     * Click on the "Actions" card
+     * Go to input box, and remove existing text inside
+     * Enter “techglobal” to input box with uppercases
+     * Validate the value attribute for search input box is “TECHGLOBAL”
+     * Then, copy the text and paste again
+     * Validate the value attribute for search input box is “TECHGLOBALTECHGLOBAL”
+     */
+
+    @Test(priority = 4, description = "More keyboard actions")
+    public void moreKeyboardActions(){
+
     }
 }
