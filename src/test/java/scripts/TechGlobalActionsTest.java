@@ -121,5 +121,21 @@ public class TechGlobalActionsTest extends TechGlobalBase{
     @Test(priority = 4, description = "More keyboard actions")
     public void moreKeyboardActions(){
 
+        actions.keyDown(Keys.SHIFT)
+                .sendKeys(techGlobalActionsPage.inputBox, "techglobal")
+                .keyUp(Keys.SHIFT)
+                .pause(Duration.ofSeconds(2))
+                .keyDown(Keys.COMMAND)
+                .sendKeys("a")
+                .pause(Duration.ofSeconds(2))
+                .sendKeys("c")
+                .keyUp(Keys.COMMAND)
+                .sendKeys(Keys.ARROW_RIGHT)
+                .keyDown(Keys.COMMAND)
+                .sendKeys("v")
+                .pause(Duration.ofSeconds(2))
+                .perform();
+
+        Assert.assertEquals(techGlobalActionsPage.inputBox.getAttribute("value"), "TECHGLOBALTECHGLOBAL");
     }
 }
